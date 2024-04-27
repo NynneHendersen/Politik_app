@@ -7,7 +7,11 @@ def app():
     # Laver session_state varibel for databasen
     if 'db' not in st.session_state:
         st.session_state.db = ''
-
+        
+    # Laver session_state varibel for databasen
+    if 'username' not in st.session_state:
+        st.session_state.username = ''
+        
     db = firestore.client()
     st.session_state.db = db
 
