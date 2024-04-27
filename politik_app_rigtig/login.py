@@ -7,7 +7,7 @@ from firebase_admin import auth
 
 #Connecter til firebase (vores database)
 cred = credentials.Certificate('politikapp1-a00ae08ce413.json')
-#firebase_admin.initialize_app(cred)
+firebase_admin.initialize_app(cred)
 
 #stor funktion der "runner" appen
 def app():
