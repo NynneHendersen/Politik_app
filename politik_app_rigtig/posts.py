@@ -8,7 +8,7 @@ def app():
     if 'db' not in st.session_state:
         st.session_state.db = ''
         
-    # Laver session_state varibel for databasen
+    # Laver session_state varibel for brugernavnet
     if 'username' not in st.session_state:
         st.session_state.username = ''
         
@@ -79,9 +79,16 @@ def app():
             comment_button = st.button('Tilføj Kommentar' , key = doc.id + '_button')
 
             if comment_button:
-                #Tilføjer en ny kommentar til arrayet 'Comments' for det pågældende dokument (post)
-                db.collection('Posts').document(doc.id).update({'Comments': firestore.ArrayUnion([comment])})
-                st.succes('Kommentar tilføjet')
+                if comment != '':
+                    # Tjekker om forbudte ord bliver brugt
+                    if any(word in comment.lower() for word in forbudte_ord):
+                        # Hvis de bruges skrives dette:
+                        st.warning("Dit opslag indeholder forbudte ord. Fjern dem for at lægge dit opslag op og bidrage til den gode tone :)") 
+                    # Ellers tilføjes ny kommentar til databasen
+                    else:
+                        #Tilføjer en ny kommentar til arrayet 'Comments' for det pågældende dokument (post)
+                        db.collection('Posts').document(doc.id).update({'Comments': firestore.ArrayUnion([comment])})
+                        st.succes('Kommentar tilføjet')
             
             post_comments = d['Comments'] 
             
