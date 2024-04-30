@@ -57,7 +57,7 @@ def app():
                 # Tilføjer dokument til databasen med værdien data
                 db.collection('Posts').document(post).set(data)
             
-            st.success('Post Uploaded!')
+                st.success('Post Uploaded!')
     
     # Hvis ikke der står noget i 'post'-feltet skrives dette:
     else:
