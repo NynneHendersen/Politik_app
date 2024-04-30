@@ -27,7 +27,14 @@ def app():
     post = st.text_area(label = ' :orange[+ New Post]' , placeholder = ph , height = None , max_chars = 500)
 
     # Opretter liste med forbudte ord / udtryk
-    forbudte_ord = ["fuck", "shit", "lort", "damn", "asshole", "piss", "bitch", "cunt", "motherfucker", "ass", "bastard", "bullshit", "cock", "dick", "pussy" ]
+    forbudte_ord = ["fuck", "shit", "lort", "damn", "asshole", "piss", "bitch", "cunt", "motherfucker", "ass", "bastard", "bullshit", "cock", "dick", "pussy" , "røvhul", "skiderik", "fjols", "klaphat", "idiot", "svin", 
+        "kælling", "dumrian", "møgkælling", "fanden", "helvede", "pik", "fisse", 
+        "skvat", "drittsekk", "døgenigt", "bøsserøv", "luder", "skod", "pikhoved", 
+        "møgfisse", "fissehår", "pis", "skide", "bolle", "nar", "tåbe", "svans",
+        "spade", "bonderøv", "fede", "lallende", "taber", "mongol", "spasser" , "prick", "slut", "wanker", 
+        "twat", "nigger", "spastic", "retard", "whore", "hoe", "sucker", 
+        "fuckface", "shithead", "douchebag", "jerk", "arsehole", "crap", "bollocks", 
+        "tosser", "gobshite", "bellend", "numbnuts", "dickhead" , "f*ck" , "sl*t" , "m*gk*lling" , "m*gkælling" , "piksutter" , "r*v" ]
     
     # Opret et opslag når man trykker på 'Post'-knap
     if st.button('Post' , use_container_width = 20):
